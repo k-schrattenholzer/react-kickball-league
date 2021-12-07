@@ -18,7 +18,8 @@ function TeamList() {
           return (
             <li key={team.id}>
               <Link to={`teams/${team.id}`} className='App-link'>
-                {team.name}</Link>
+                {team.name}
+              </Link>
             </li>
           )
         })

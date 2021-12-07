@@ -21,11 +21,11 @@ export default function PlayerList() {
           return (
             <li key={player.id}>
               <Link to={`players/${player.id}`} className='App-link'>
-                {player.name}</Link>
+                {player.name}
+              </Link>
             </li>
           )
         })
-
         }
       </ul>
     </div>
