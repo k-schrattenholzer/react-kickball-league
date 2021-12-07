@@ -3,7 +3,7 @@ import TeamDetail from './TeamDetail'
 function TeamList() {
   return (
     <div>
-      Team List 
+      Team View 
       <TeamDetail/>
     </div>
   )
