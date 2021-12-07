@@ -13,7 +13,7 @@ function TeamList() {
 
   return (
     <div>
-      <h4>current baby teams</h4>
+      <h4>top 6 baby teams (nationally ranked)</h4>
       <ul>
         {teams.map((team) => {
           return (

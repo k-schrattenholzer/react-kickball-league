@@ -1,8 +1,7 @@
 export default function Home() {
   return (
     <div>
-      Home!
-      Page!
+      Ranked Baby Teams (teams of babies). Click Teams to discover... something magical.
     </div>
   )
 }
