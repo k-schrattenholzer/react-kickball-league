@@ -21,12 +21,23 @@ export default function PlayerDetail({ label, match }) {
   return (
     <div>
       <h6>{label}</h6>
-      <ul>
-        <li>name: {player.name}</li>
-        <li>position: {player.position}</li>
-        <li>team: {player.teams.name}</li>
-        <li>team state: {player.teams.state}</li>
-      </ul>
+      <article className="PlayerDetail">
+        <p>
+          <b>{player.name}</b>
+        </p>
+        <p>
+          <b>position </b>
+          {player.position}
+        </p>
+        <p>
+          <b>team </b>
+          {player.teams.name}
+        </p>
+        <p>
+          <b>team state </b>
+          {player.teams.state}
+          </p>
+      </article>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getPlayers } from "../../services/players.js"
-
+import './Player.css'
 
 export default function PlayerList() {
 
@@ -12,7 +12,7 @@ export default function PlayerList() {
   }, []);
 
   return (
-    <div>
+    <div className='PlayerList'>
       <h4>top players</h4>
       <ul>
         {players.map((player) => {

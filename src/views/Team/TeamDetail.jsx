@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import { getTeamById } from "../../services/teams.js"
 
 export default function TeamDetail({ label, match }) {
@@ -17,16 +16,14 @@ export default function TeamDetail({ label, match }) {
   if (loading) return <h1>looking for toddler teams</h1>;
 
   return (
-    <div>
-      <h6>{label}</h6>
+    <div className='TeamDetail'>
+      <h1>{label}</h1>
       <h4>{team.name}</h4>
       {team.players.map((player) => {
         return (
-          <li key={player.id}>
-            <Link to={`players/${player.id}`} className='App-link'>
+          <p key={player.id}>
               {player.name}
-            </Link>
-          </li>
+          </p>
         )
       })
       }
