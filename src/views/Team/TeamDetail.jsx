@@ -5,22 +5,16 @@ import { getTeamById } from "../../services/teams.js"
 export default function TeamDetail({ label, match }) {
   const teamId = match.params.id;
 
-  console.log(match.params);
-
   const [team, setTeam] = useState(null);
   const [loading, setLoading] = useState(true);
   
-  
-
   useEffect(() => {
     getTeamById(teamId)
     .then((resp) => {
       setTeam(resp)}).finally(() => setLoading(false));
   }, [teamId]);
 
-  console.log(team);
-
-  if (loading) return <h1>fetching baby team</h1>;
+  if (loading) return <h1>looking for toddler teams</h1>;
 
   return (
     <div>

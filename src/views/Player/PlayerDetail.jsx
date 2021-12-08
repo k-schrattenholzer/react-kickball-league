@@ -5,8 +5,6 @@ import { getPlayerById } from "../../services/players.js"
 export default function PlayerDetail({ label, match }) {
   const playerId = match.params.id;
 
-  console.log(match.params);
-
   const [player, setPlayer] = useState(null);
   const [loading, setLoading] = useState(true);
   
@@ -20,13 +18,17 @@ export default function PlayerDetail({ label, match }) {
 
   console.log(player);
 
-  if (loading) return <h1>fetching baby team</h1>;
+  if (loading) return <h1>lookin for the toddler in question</h1>;
 
   return (
     <div>
-      {/* <h6>{label}</h6> */}
-      <h4>{player.name}</h4>
-      
+      <h6>{label}</h6>
+      <ul>
+        <li>name: {player.name}</li>
+        <li>position: {player.position}</li>
+        <li>team: {player.teams.name}</li>
+        <li>team state: {player.teams.state}</li>
+      </ul>
     </div>
   )
 }

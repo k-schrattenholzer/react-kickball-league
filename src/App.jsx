@@ -26,10 +26,12 @@ function App() {
           </NavLink>
         </header>
         <Switch>
-          <Route path="/players/:id" exact component={PlayerDetail} />
+          <Route path="/players/:id" render={(routerProps) => (
+            <PlayerDetail label='Toddler League Player Detail' {...routerProps} />
+          )} />
 
           <Route path="/teams/:id" render={(routerProps) => (
-            <TeamDetail label='Team Deeets (label)' {...routerProps} />
+            <TeamDetail label='Team Detail' {...routerProps} />
           )} />
 
           {/* <Route path="/teams/:id" exact component={TeamDetail} /> */}
