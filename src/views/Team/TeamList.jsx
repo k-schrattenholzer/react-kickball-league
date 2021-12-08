@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getTeams } from '../../services/teams.js';
+import './Team.css'
 
 function TeamList() {
 
@@ -10,8 +11,8 @@ function TeamList() {
   }, []);
 
   return (
-    <div>
-      <h4>top 6 baby teams (nationally ranked)</h4>
+    <div className="TeamList">
+      <h4>our fav teams</h4>
       <ul>
         {teams.map((team) => {
           return (
