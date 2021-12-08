@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import { getPlayerById } from "../../services/players.js"
 
 export default function PlayerDetail({ label, match }) {
@@ -16,7 +15,6 @@ export default function PlayerDetail({ label, match }) {
       setPlayer(resp)}).finally(() => setLoading(false));
   }, [playerId]);
 
-  console.log(player);
 
   if (loading) return <h1>lookin for the toddler in question</h1>;
 
