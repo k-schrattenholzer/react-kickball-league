@@ -15,6 +15,14 @@ export default function TeamDetail({ label, match }) {
 
   if (loading) return <h1>looking for toddler teams</h1>;
 
+  if (team.players.length === 0) 
+      return (
+        <div>
+          <h4>{team.name}</h4>
+          <p>still waiting on players</p>
+        </div>
+      );
+
   return (
     <div className='TeamDetail'>
       <h1>{label}</h1>
