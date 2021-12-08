@@ -13,7 +13,7 @@ export default function PlayerList() {
 
   return (
     <div>
-      <h4>our favorite babies</h4>
+      <h4>top players</h4>
       <ul>
         {players.map((player) => {
           return (
