@@ -11,8 +11,6 @@ export default function PlayerList() {
     getPlayers().then((resp) => setPlayers(resp));
   }, []);
 
-  console.log(players)
-
   return (
     <div>
       <h4>our favorite babies</h4>
