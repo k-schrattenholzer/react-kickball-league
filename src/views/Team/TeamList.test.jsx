@@ -1,19 +1,7 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router";
-import TeamList from "./TeamList.jsx";
+import { render } from "@testing-library/react";
+import TeamList from './TeamList'
 
-it.skip('should render a detail view of the selected team', async () => {
-  render(
-    <MemoryRouter>
-      <TeamList abel='Team List' match={{ params: {id:'2'}}}/>
-    </MemoryRouter>
-  );
-
-  screen.getByText('looking for toddler teams');
-
-  const teamName = await screen.findByText('Stumptown Lumberjacks', {
-    exact: false,
-  });
-
-  expect(teamName).toBeInTheDocument();
-} )
+it('should render teamList', () => {
+  const { container } = render(<TeamList />);
+  expect(container).toMatchSnapshot();
+})

@@ -5,7 +5,6 @@ import { getTeams } from '../../services/teams.js';
 function TeamList() {
 
   const [teams, setTeams] = useState([]);
-  console.log(teams)
   useEffect(() => {
     getTeams().then((resp) => setTeams(resp));
   }, []);
