@@ -16,6 +16,7 @@ function TeamList() {
 
   return (
     <div className="TeamList">
+      <Link to={'/teams/new'}>add your team</Link>
       <h4>our fav teams</h4>
       <ul>
         {teams.map((team) => {
