@@ -1,38 +1,93 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+:root {
+  --font: 'Lobster', cursive;
+  --melon: #fec5bbff;
+  --pale-pink: #fcd5ceff;
+  --misty-rose: #fae1ddff;
+  --isabelline: #f8edebff;
+  --platinum: #e8e8e4ff;
+  --alabaster: #d8e2dcff;
+  --linen: #ece4dbff;
+  --champagne-pink: #ffe5d9ff;
+  --peach-puff: #ffd7baff;
+  --peach-crayola: #fec89aff;
+  --dark-green: #1A231E;
+  --ash-green: #C4D4CA;
+  --saffron: #B65602;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: var(--pale-pink);
+  color: var(--dark-green);
+  font-family: var(--font);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 15px;
+  background-color: var(--ash-green);
+  width: 100%;
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+h1 {
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 35px;
+  text-decoration: underline;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  font-weight: normal;
+}
+
+li {
+  background-color: var(--misty-rose);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 30px;
+  transition: box-shadow .3s;
+  text-decoration: none;
+  list-style-type: none;
+  
+}
+
+li >a {
+  padding: 10px;
+  margin: 10px;
+  text-decoration: none;
+  list-style-type: none;
+  font-weight: normal;
+}
+
+li:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
 }
 
 .App-link {
-  color: #61dafb;
+  color: var(--dark-green);
+  text-decoration: none;
+  font-size: 35px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-link:hover {
+  color: var(--saffron);
+  text-shadow: -2px 2px 3px rgba(26,35,30,0.39);
 }
+
