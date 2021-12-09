@@ -6,8 +6,6 @@ export default function PlayerDetail({ label, match }) {
 
   const [player, setPlayer] = useState(null);
   const [loading, setLoading] = useState(true);
-  
-  
 
   useEffect(() => {
     getPlayerById(playerId)

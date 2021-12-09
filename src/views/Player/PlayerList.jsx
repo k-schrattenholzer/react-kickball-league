@@ -6,10 +6,13 @@ import './Player.css'
 export default function PlayerList() {
 
   const [players, setPlayers] = useState([]);
+  const [loading, setLoading] = useState([]);
 
   useEffect(() => {
-    getPlayers().then((resp) => setPlayers(resp));
+    getPlayers().then((resp) => setPlayers(resp)).finally(setLoading(false));
   }, []);
+
+  if (loading) return <h1>fetching the players</h1>;
 
   return (
     <div className='PlayerList'>
