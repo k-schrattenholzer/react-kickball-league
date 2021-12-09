@@ -6,9 +6,13 @@ import './Team.css'
 function TeamList() {
 
   const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    getTeams().then((resp) => setTeams(resp));
+    getTeams().then((resp) => setTeams(resp)).finally(setLoading(false));
   }, []);
+
+  if (loading) return <h1>fetching the teams</h1>;
 
   return (
     <div className="TeamList">
