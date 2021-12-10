@@ -8,23 +8,20 @@ export default function AddPlayer() {
   
   const [name, setName] = useState('');
   const [position, setPosition] = useState('');
-  const [teamId, setTeamId] = useState('');
+  const [teamId, setTeamId] = useState(null);
   const [teams, setTeams] = useState([]);
 
   const history = useHistory();
-
   
   useEffect(() => {
     getTeams().then((resp) => setTeams(resp));
   }, []);
   
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    
+    e.preventDefault();   
     const res = await createPlayer({ name, position, teamId });
     history.push(`/players/${res[0].id}`);
   }
-
   
   return (
     <>
@@ -46,14 +43,15 @@ export default function AddPlayer() {
             onChange={({ target }) => setPosition(target.value)} />
 
           <label htmlFor="team">team: </label>
-          <select>
-            {teams.map((team) => 
-            <option 
-              value={team.id}
-              key={team.id}
-              onChange={({ target }) => setTeamId(target.value)}>
-                {team.name}
-              </option>)}
+          <select
+            onChange={({ target }) => setTeamId(target.value)}>
+              {teams.map((team) => 
+              <option 
+                value={team.id}
+                key={team.id}
+                >
+                  {team.name}
+                </option>)}
           </select>
           
           {/* <input
