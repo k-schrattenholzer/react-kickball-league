@@ -1,7 +1,8 @@
+/* eslint-disable no-restricted-globals */
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom"
-import { getPlayers } from "../../services/players.js"
+import { getPlayers, deletePlayerById } from "../../services/players.js"
 import './Player.css'
 
 export default function PlayerList() {
@@ -12,8 +13,23 @@ export default function PlayerList() {
   const history = useHistory();
 
   useEffect(() => {
-    getPlayers().then((resp) => setPlayers(resp)).finally(setLoading(false));
+    loadPlayers();
   }, []);
+
+  const loadPlayers = async () => {
+    const res = await getPlayers();
+    setPlayers(res);
+    setLoading(false);
+  }
+
+  const handleDelete = async ({ id, name}) => {
+    const pleaseDelete = confirm(`Please confirm you would like to delete ${name}`);
+    
+    if (pleaseDelete) {
+      await deletePlayerById(id);
+      await loadPlayers();
+  };
+}
 
   const handleEdit = async ({ id }) => {
     history.push(`/players/edit/${id}`)
@@ -35,6 +51,10 @@ export default function PlayerList() {
                 type='button'
                 onClick={() => handleEdit({ id: player.id })}
                 >edit</button>
+                <button 
+                type="button" 
+                onClick={() => handleDelete({ id: player.id, name: player.name })}>
+                  delete the bb</button>
             </li>
           )
         })
