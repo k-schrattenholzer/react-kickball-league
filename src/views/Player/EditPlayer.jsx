@@ -37,8 +37,7 @@ export default function EditPlayer() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await updatePlayerById(id, { name, position, teamId });
-    confirm(`sure you want to update ${name} andID ${res[0].id}`)
-    // history.push(`/players/${res[0].id}`)
+    history.push(`/players/${res[0].id}`)
   }
 
   if (loading) return <>fetching the toddler in question...</>;
