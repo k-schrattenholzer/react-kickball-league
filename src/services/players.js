@@ -14,6 +14,14 @@ export async function getPlayerById(id) {
   return parseData(request);
 }
 
+// export async function getPlayersByTeam(id) {
+//   const request = await client
+//     .from('teams')
+//     .select('*, players (*)')
+//     .match({id});
+//   return parseData(request);
+// }
+
 export async function updatePlayerById(id, { name, position }) {
   const request = await client
     .from('players')
