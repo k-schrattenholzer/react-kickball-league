@@ -8,6 +8,8 @@ export default function PlayerList() {
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState([]);
 
+  
+
   useEffect(() => {
     getPlayers().then((resp) => setPlayers(resp)).finally(setLoading(false));
   }, []);
