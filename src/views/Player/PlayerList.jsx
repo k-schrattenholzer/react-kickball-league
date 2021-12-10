@@ -29,6 +29,7 @@ export default function PlayerList() {
         })
         }
       </ul>
+      <Link to={'/players/new'} className='App-link Link'>don't see your toddler? add here</Link>
     </div>
   )
 }

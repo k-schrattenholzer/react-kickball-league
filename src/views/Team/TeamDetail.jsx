@@ -10,16 +10,10 @@ export default function TeamDetail({ label, match }) {
   useEffect(() => {
     getTeamById(teamId)
     .then((resp) => {
-      console.log(resp)
       setTeam(resp)}).finally(() => setLoading(false));
   }, [teamId]);
 
-  if (loading) return (
-                  <>
-                    <h1>looking for toddler teams</h1>
-
-                  </>
-                  );
+  if (loading) return (<h1>looking for toddler teams</h1>);
 
   if (team.players.length === 0) 
       return (

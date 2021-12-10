@@ -9,12 +9,12 @@ export default function AddTeam() {
   const [state, setState] = useState('');
 
   const history = useHistory();
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     const res = await createTeam({ name, city, state });
-
+    
     history.push(`/teams/${res[0].id}`);
   }
 
