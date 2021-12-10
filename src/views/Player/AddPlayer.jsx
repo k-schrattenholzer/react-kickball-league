@@ -8,7 +8,7 @@ export default function AddPlayer() {
   
   const [name, setName] = useState('');
   const [position, setPosition] = useState('');
-  const [teamId, setTeamId] = useState(null);
+  const [teamId, setTeamId] = useState(1);
   const [teams, setTeams] = useState([]);
 
   const history = useHistory();
@@ -27,7 +27,9 @@ export default function AddPlayer() {
     <>
       <fieldset>
         <legend>Add a Player</legend>
+
         <form onSubmit={handleSubmit}>
+
           <label htmlFor="name">name: </label>
           <input
             id='name'
@@ -53,14 +55,8 @@ export default function AddPlayer() {
                   {team.name}
                 </option>)}
           </select>
-          
-          {/* <input
-            id='team'
-            name={teamId}
-            type="text"
-            onChange={({ target }) => setTeamId(target.value)} /> */}
-
           <input type="submit" value='add toddler player' />
+
         </form>
       </fieldset>
     </>);
