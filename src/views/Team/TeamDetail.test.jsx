@@ -11,7 +11,7 @@ it('should render a detail view of the selected team', async () => {
 
   screen.getByText('looking for toddler teams');
 
-  const teamName = await screen.findByText('Stumptown Lumberjacks', {
+  const teamName = await screen.findByText('Identity Theft Is Not A Joke', {
     exact: false,
   });
 

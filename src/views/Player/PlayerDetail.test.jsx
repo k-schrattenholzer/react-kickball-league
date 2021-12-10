@@ -11,12 +11,12 @@ it('should render a detail view of the selected team', async () => {
 
   screen.getByText(/toddler in question/);
 
-  const playerName = await screen.findByText('Hans Olo', {
+  const playerPosition = await screen.findByText('position', {
     exact: false,
   });
 
   const customLabel = screen.getByText('Team Detail');
 
-  expect(playerName).toBeInTheDocument();
+  expect(playerPosition).toBeInTheDocument();
   expect(customLabel).toBeInTheDocument();
 } )

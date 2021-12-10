@@ -8,6 +8,6 @@ it('should render teamList', async () => {
       <TeamList />
     </MemoryRouter>
     );
-  const teamName = await screen.findByText(/Stumptown/)
+  const teamName = await screen.findByText(/our fav teams/)
   expect(teamName).toBeInTheDocument();
 })

@@ -2,8 +2,18 @@
 
 exports[`should render homepage 1`] = `
 <div>
-  <div>
-    National Toddler Kickball League
+  <div
+    class="Home"
+  >
+    <h1>
+      The Official 
+    </h1>
+    <h2>
+      National Toddler Kickball League 
+    </h2>
+    <h3>
+      Guide
+    </h3>
   </div>
 </div>
 `;
