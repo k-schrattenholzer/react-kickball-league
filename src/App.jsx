@@ -12,6 +12,7 @@ import TeamDetail from "./views/Team/TeamDetail.jsx";
 import PlayerDetail from "./views/Player/PlayerDetail.jsx";
 import TeamList from "./views/Team/TeamList.jsx";
 import PlayerList from "./views/Player/PlayerList.jsx";
+import EditTeam from "./views/Team/EditTeam.jsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           </NavLink>
         </header>
         <Switch>
+          <Route path="/teams/edit/:id" component={EditTeam} />
           <Route path="/teams/new" component={AddTeam} />
           <Route path="/players/new" component={AddPlayer} />
           <Route

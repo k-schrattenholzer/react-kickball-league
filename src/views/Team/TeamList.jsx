@@ -39,6 +39,10 @@ function TeamList() {
               <Link to={`teams/${team.id}`} className="App-link">
                 {team.name}
               </Link>
+              <button
+                type='button'
+                on
+                >edit</button>
               <button 
                 type="button" 
                 onClick={() => handleDelete({ id: team.id, name: team.name })}>
