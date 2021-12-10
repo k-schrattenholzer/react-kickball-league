@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-restricted-globals */
 import { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
@@ -14,8 +15,6 @@ export default function EditPlayer() {
   const [position, setPosition] = useState('');
   const [teamId, setTeamId] = useState(1);
   const [loading, setLoading] = useState(true);
-
-  console.log(team, teamList, name, position, teamId)
 
 	const history = useHistory();
 

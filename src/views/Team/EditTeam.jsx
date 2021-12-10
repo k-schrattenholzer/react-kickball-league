@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react"
 import { useParams, useHistory } from "react-router-dom"
 import EditTeamForm from '../../components/Teams/EditTeamForm.jsx'
