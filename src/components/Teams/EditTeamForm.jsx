@@ -42,7 +42,7 @@ export default function EditTeamForm({
           onChange={({ target }) => setState(target.value)}
         />
 
-        <input type="submit" aria-label="Edit" value="update team" />
+        <input type="submit" aria-label="Edit" value="update team" onClick={handleSubmit}/>
       </form>
     </div>
   );
