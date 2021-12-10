@@ -24,15 +24,15 @@ export default function EditTeam() {
         })
         .finally(() => setLoading(false));
   }, [id])
-
-  if (loading) return <>fetching the rowdy toddlers...</>;
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await updateTeamById(id, { name, city, state });
     history.push(`/teams/${res[0].id}`);
   }
-  
+
+  if (loading) return <>fetching the rowdy toddlers...</>;
+
   return (
     <>
       <EditTeamForm

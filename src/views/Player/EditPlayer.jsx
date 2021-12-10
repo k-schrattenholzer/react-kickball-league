@@ -12,12 +12,27 @@ export default function EditPlayer() {
   const [teamList, setTeamList] = useState([]);
   const [name, setName] = useState('');
   const [position, setPosition] = useState('');
-  const [teamId, setTeamId] = useState('');
+  const [teamId, setTeamId] = useState(1);
+  const [loading, setLoading] = useState(true);
+
+  console.log(team, teamList, name, position, teamId)
 
 	const history = useHistory();
+
   useEffect(() => {
     getTeams().then((resp) => setTeamList(resp));
   }, []);
+
+  useEffect(() => {
+    getPlayerById(id)
+        .then((res) => {
+          setTeam(res);
+          setName(res.name);
+          setPosition(res.position);
+          setTeamId(res.teamId);
+        })
+        .finally(() => setLoading(false));
+  }, [id])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +40,8 @@ export default function EditPlayer() {
     confirm(`sure you want to update ${name} andID ${res[0].id}`)
     // history.push(`/players/${res[0].id}`)
   }
+
+  if (loading) return <>fetching the toddler in question...</>;
 
   return (
     <>
