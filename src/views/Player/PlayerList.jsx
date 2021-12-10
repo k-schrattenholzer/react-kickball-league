@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom"
 import { getPlayers } from "../../services/players.js"
 import './Player.css'
@@ -8,11 +9,15 @@ export default function PlayerList() {
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState([]);
 
-  
+  const history = useHistory();
 
   useEffect(() => {
     getPlayers().then((resp) => setPlayers(resp)).finally(setLoading(false));
   }, []);
+
+  const handleEdit = async ({ id }) => {
+    history.push(`/players/edit/${id}`)
+  }
 
   if (loading) return <h1>fetching the players</h1>;
 
@@ -26,6 +31,10 @@ export default function PlayerList() {
               <Link to={`players/${player.id}`} className='App-link'>
                 {player.name}
               </Link>
+              <button
+                type='button'
+                onClick={() => handleEdit({ id: player.id })}
+                >edit</button>
             </li>
           )
         })

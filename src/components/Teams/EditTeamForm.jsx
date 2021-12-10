@@ -10,7 +10,8 @@ export default function EditTeamForm({
   return (
     <div>
       <h1>{name}</h1>
-      <form>
+      <form
+        onSubmit={handleSubmit}>
         <legend></legend>
         <label htmlFor="name">team name </label>
         <input
@@ -42,7 +43,7 @@ export default function EditTeamForm({
           onChange={({ target }) => setState(target.value)}
         />
 
-        <input type="submit" aria-label="Edit" value="update team" onClick={handleSubmit}/>
+        <input type="submit" aria-label="Edit" value="update team"/>
       </form>
     </div>
   );

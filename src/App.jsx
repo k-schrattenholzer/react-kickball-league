@@ -13,6 +13,7 @@ import PlayerDetail from "./views/Player/PlayerDetail.jsx";
 import TeamList from "./views/Team/TeamList.jsx";
 import PlayerList from "./views/Player/PlayerList.jsx";
 import EditTeam from "./views/Team/EditTeam.jsx";
+import EditPlayer from "./views/Player/EditPlayer.jsx";
 
 function App() {
   return (
@@ -29,32 +30,31 @@ function App() {
             Players
           </NavLink>
         </header>
+
         <Switch>
-          <Route path="/teams/edit/:id" component={EditTeam} />
-          <Route path="/teams/new" component={AddTeam} />
-          <Route path="/players/new" component={AddPlayer} />
-          <Route
-            path="/players/:id"
-            render={(routerProps) => (
-              <PlayerDetail
-                label="Toddler League Player Detail"
-                {...routerProps}
-              />
-            )}
-          />
+            <Route path="/teams/edit/:id" component={EditTeam} />
+            <Route path="/players/edit/:id" component={EditPlayer} />
+            <Route path="/teams/new" component={AddTeam} />
+            <Route path="/players/new" component={AddPlayer} />
+            <Route
+              path="/players/:id"
+              render={(routerProps) => (
+                <PlayerDetail
+                  label="Toddler League Player Detail"
+                  {...routerProps}
+                />
+              )}
+            />
 
-          <Route
-            path="/teams/:id"
-            render={(routerProps) => (
-              <TeamDetail label="Team Detail" {...routerProps} />
-            )}
-          />
-
-          {/* <Route path="/teams/:id" exact component={TeamDetail} /> */}
-
-          <Route path="/players" exact component={PlayerList} />
-          <Route path="/teams" exact component={TeamList} />
-          <Route path="/" exact component={Home} />
+            <Route
+              path="/teams/:id"
+              render={(routerProps) => (
+                <TeamDetail label="Team Detail" {...routerProps} />
+              )}
+            />
+            <Route path="/players" exact component={PlayerList} />
+            <Route path="/teams" exact component={TeamList} />
+            <Route path="/" exact component={Home} />
         </Switch>
       </Router>
     </main>
