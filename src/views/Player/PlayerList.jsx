@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"
 import { getPlayers, deletePlayerById } from "../../services/players.js"
 import './Player.css'
 
+//comment 
+
 export default function PlayerList() {
 
   const [players, setPlayers] = useState([]);
