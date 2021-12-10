@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { deleteTeamById, getTeams } from "../../services/teams.js";
 import "./Team.css";
@@ -7,6 +8,8 @@ import "./Team.css";
 function TeamList() {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const history = useHistory();
 
   const loadTeams = async () => {
     const res = await getTeams();
@@ -22,6 +25,10 @@ function TeamList() {
       await loadTeams();
   };
 }
+
+  const handleEdit = async ({ id }) => {
+    history.push(`/teams/edit/${id}`)
+  }
   
   useEffect(() => {
     loadTeams();
@@ -41,7 +48,7 @@ function TeamList() {
               </Link>
               <button
                 type='button'
-                on
+                onClick={() => handleEdit({ id: team.id })}
                 >edit</button>
               <button 
                 type="button" 
