@@ -24,7 +24,7 @@ export default function PlayerList() {
     setLoading(false);
   }
 
-  const handleDelete = async ({ id, name}) => {
+  const handleDelete = async ({ id, name }) => {
     const pleaseDelete = confirm(`Please confirm you would like to delete ${name}`);
     
     if (pleaseDelete) {

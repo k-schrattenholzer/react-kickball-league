@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitForElementToBeRemoved } from "@testing-library/react";
 import { setupServer } from "msw/node";
 import { rest } from "msw";
 import { Route, Router } from "react-router-dom";
@@ -52,17 +52,13 @@ it.only("should add a team, and redirect to the full team list", async () => {
     </Router>
   );
 
-  // screen.getByText(/Add a Team/);
+  const nameInput = screen.getByLabelText(/name/i);
+  const cityInput = screen.getByLabelText(/city/i);
+  const stateInput = screen.getByLabelText(/state/i);
 
-  // const nameInput = screen.getByLabelText(/name/i);
-  // const cityInput = screen.getByLabelText(/city/i);
-  // const stateInput = screen.getByLabelText(/state/i);
-  // const submitBtn = screen.getByLabelText("button", { name: "Add a team" });
+  userEvent.type(nameInput, "Big Nice-Smelling Adults");
+  userEvent.type(cityInput, "Nowhere");
+  userEvent.type(stateInput, "US");
 
-  // userEvent.type(nameInput, "Big Nice-Smelling Adults");
-  // userEvent.type(cityInput, "Nowhere");
-  // userEvent.type(stateInput, "US");
-  // userEvent.click(submitBtn);
-
-  // await screen.findByText("Stinky Little Babies");
+  await screen.findByText("Stinky Little Babies");
 });
