@@ -15,7 +15,7 @@ import PlayerList from "./views/Player/PlayerList.jsx";
 import EditTeam from "./views/Team/EditTeam.jsx";
 import EditPlayer from "./views/Player/EditPlayer.jsx";
 
-function App() {
+export default function App() {
   return (
     <main className="container">
       <Router>
@@ -61,4 +61,3 @@ function App() {
   );
 }
 
-export default App;

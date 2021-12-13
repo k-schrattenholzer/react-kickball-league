@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { deleteTeamById, getTeams } from "../../services/teams.js";
 import "./Team.css";
 
-//commment to test deploy
-
 function TeamList() {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,12 +18,21 @@ function TeamList() {
   }
   
   const handleDelete = async ({ id, name}) => {
-    const pleaseDelete = confirm(`Please confirm you would like to delete ${name}`);
+  
+    const userConfirmsDelete = confirm(`Please confirm you would like to delete ${name}`);
     
-    if (pleaseDelete) {
-      await deleteTeamById(id);
-      await loadTeams();
-  };
+    if (userConfirmsDelete) {
+      try{
+          await deleteTeamById(id);
+          await loadTeams();
+      } catch(err) {
+        if (err.code === '23503'){
+          alert('Silly... there are players on that team. We cant leave the kiddos high n dry. Delete the players first if you must.')
+        }
+      }  
+  } else {
+    return
+  }
 }
 
   const handleEdit = async ({ id }) => {
@@ -35,6 +42,7 @@ function TeamList() {
   useEffect(() => {
     loadTeams();
   }, []);
+
 
   if (loading) return <h1>fetching the teams</h1>;
 
@@ -54,7 +62,7 @@ function TeamList() {
                 >edit</button>
               <button 
                 type="button" 
-                onClick={() => handleDelete({ id: team.id, name: team.name })}>
+                onClick={() => handleDelete({ id: team.id, name: team.name})}>
                   delete team</button>
             </li>
           );

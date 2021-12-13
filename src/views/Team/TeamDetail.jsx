@@ -30,14 +30,19 @@ export default function TeamDetail({ label, match }) {
       <h1>{label}</h1>
       <h4>{team.name}</h4>
       <h3>from {team.city}, {team.state}</h3>
-      {team.players.map((player) => {
-        return (
-          <p key={player.id}>
-              {player.name}
-          </p>
-        )
-      })
-      }
+      <ul>
+        players
+        {team.players.map((player) => {
+          return (
+              <li key={player.id}>
+                  {player.name}
+                  {player.position}
+              </li>
+          )
+        })
+        }
+        </ul>
+
     </div>
   )
 }

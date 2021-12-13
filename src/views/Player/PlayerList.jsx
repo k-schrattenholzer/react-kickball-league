@@ -5,6 +5,8 @@ import { Link } from "react-router-dom"
 import { getPlayers, deletePlayerById } from "../../services/players.js"
 import './Player.css'
 
+//comment 
+
 export default function PlayerList() {
 
   const [players, setPlayers] = useState([]);
@@ -22,7 +24,7 @@ export default function PlayerList() {
     setLoading(false);
   }
 
-  const handleDelete = async ({ id, name}) => {
+  const handleDelete = async ({ id, name }) => {
     const pleaseDelete = confirm(`Please confirm you would like to delete ${name}`);
     
     if (pleaseDelete) {
