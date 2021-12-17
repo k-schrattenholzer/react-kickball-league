@@ -1,4 +1,4 @@
-import { render, screen, waitForElementToBeRemoved } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { setupServer } from "msw/node";
 import { rest } from "msw";
 import { Route, Router } from "react-router-dom";

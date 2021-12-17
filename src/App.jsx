@@ -35,7 +35,7 @@ export default function App() {
             <Route path="/teams/edit/:id" component={EditTeam} />
             <Route path="/players/edit/:id" component={EditPlayer} />
             <Route path="/teams/new" component={AddTeam} />
-            <Route path="/players/new" component={AddPlayer} />
+            <Route exact path="/players/new" component={AddPlayer} />
             <Route
               path="/players/:id"
               render={(routerProps) => (

@@ -44,7 +44,7 @@ export default function AddPlayer() {
             type="text"
             onChange={({ target }) => setPosition(target.value)} />
 
-          <label htmlFor="team">team: </label>
+          <label htmlFor="team" aria-label='team'>team: </label>
           <select
             onChange={({ target }) => setTeamId(target.value)}>
               {teams.map((team) => 
