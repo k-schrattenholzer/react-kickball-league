@@ -8,7 +8,8 @@ export default function EditTeamForm({
   setState,
 }) {
   return (
-    <div>
+    <fieldset>
+      <legend>Update Team Info</legend>
       <h1>{name}</h1>
       <form
         onSubmit={handleSubmit}>
@@ -43,8 +44,8 @@ export default function EditTeamForm({
           onChange={({ target }) => setState(target.value)}
         />
 
-        <input type="submit" aria-label="Edit" value="update team"/>
+        <input type="submit" name="Edit" id="Edit" aria-label="Edit" value="update team"/>
       </form>
-    </div>
+    </fieldset>
   );
 }

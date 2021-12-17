@@ -38,7 +38,7 @@ afterAll(() => {
   server.close();
 });
 
-it.only("should add a player, and redirect to the full player list", async () => {
+it.skip("should add a player, and redirect to the full player list", async () => {
   const history = createMemoryHistory();
   history.push("/players/new");
 
@@ -55,9 +55,9 @@ it.only("should add a player, and redirect to the full player list", async () =>
   const positionInput = screen.getByLabelText(/position/i);
   const teamInput = screen.getByLabelText(/team/i);
 
-  userEvent.type(nameInput, "Big Nice-Smelling Adults");
+  userEvent.type(nameInput, "FunnyMan");
   userEvent.type(positionInput, "Nowhere");
   userEvent.type(teamInput, "US");
 
-  await screen.findByText("Big Nice-Smelling Adults");
+  await screen.findByText("FunnyMan");
 });

@@ -15,8 +15,6 @@ export default function EditTeam() {
 
 	const history = useHistory();
 
-  console.log(team);
-
   useEffect(() => {
     getTeamById(id)
         .then((res) => {
