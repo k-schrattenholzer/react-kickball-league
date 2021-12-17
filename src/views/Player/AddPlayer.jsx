@@ -55,7 +55,7 @@ export default function AddPlayer() {
                   {team.name}
                 </option>)}
           </select>
-          <input type="submit" value='add toddler player' />
+          <input type="submit" name='AddPlayerBtn' aria-label='AddPlayerBtn' value='add toddler player' />
 
         </form>
       </fieldset>

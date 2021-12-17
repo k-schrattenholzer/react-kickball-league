@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitForElementToBeRemoved } from "@testing-library/react";
 import { setupServer } from "msw/node";
 import { rest } from "msw";
 import { Route, Router } from "react-router-dom";
@@ -12,7 +12,14 @@ const player = {
   created_at: "2021-12-11T01:20:11.221034+00:00",
   name: "FunnyMan",
   position: "CEO",
-  team_id: 1
+  team_id: 1,
+  teams: {
+    city: 'Nowhere',
+    created_at: '2021-12-11T01:20:11.221034+00:00',
+    id: 1,
+    name:"Identity Theft is Not A Joke",
+    state: 'JK'
+  }
 };
 
 const server = setupServer(
@@ -38,7 +45,7 @@ afterAll(() => {
   server.close();
 });
 
-it.skip("should add a player, and redirect to the full player list", async () => {
+it.only("should add a player, and redirect to the player detail", async () => {
   const history = createMemoryHistory();
   history.push("/players/new");
 
@@ -47,17 +54,23 @@ it.skip("should add a player, and redirect to the full player list", async () =>
       <Route path="/players/new">
         <AddPlayer />
       </Route>
-      <Route path="/players/:id" component={PlayerDetail} />
+      <Route exact path="/players/:id" component={PlayerDetail} />
     </Router>
   );
-
+  
+  screen.getByText('Add a Player', {exact: false })
+  
   const nameInput = screen.getByLabelText(/name/i);
   const positionInput = screen.getByLabelText(/position/i);
   const teamInput = screen.getByLabelText(/team/i);
-
+  const submitBtn = screen.getByLabelText(/AddPlayerBtn/i)
+  
   userEvent.type(nameInput, "FunnyMan");
-  userEvent.type(positionInput, "Nowhere");
-  userEvent.type(teamInput, "US");
+  userEvent.type(positionInput, "CEO");
+  userEvent.type(teamInput, "1");
+  userEvent.click(submitBtn);
+  
+  await waitForElementToBeRemoved(()=> screen.queryByText(/lookin for the toddler in question/i))
 
-  await screen.findByText("FunnyMan");
+  await screen.findByText("FunnyMan", {exact: false});
 });
