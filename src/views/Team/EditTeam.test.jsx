@@ -39,7 +39,7 @@ afterAll(() => {
   server.close();
 });
 
-it.only("should edit team, and redirect to the team detail page", async () => {
+it("should edit team, and redirect to the team detail page", async () => {
   const history = createMemoryHistory();
   history.push("/teams/edit/:id");
 

@@ -45,7 +45,7 @@ afterAll(() => {
   server.close();
 });
 
-it.only("should add a player, and redirect to the player detail", async () => {
+it("should add a player, and redirect to the player detail", async () => {
   const history = createMemoryHistory();
   history.push("/players/new");
 
