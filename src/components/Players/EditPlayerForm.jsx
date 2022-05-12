@@ -34,10 +34,10 @@ export default function EditPlayerForm({
           onChange={({ target }) => setPosition(target.value)}
         />
 
-        <label htmlFor="teamId">team </label>
-        <select onChange={({ target }) => setTeamId(target.value)}>
+        <label htmlFor="teamId" >team </label>
+        <select aria-label="team" onChange={({ target }) => setTeamId(target.value)}>
           {teamList.map((team) => (
-            <option value={team.id} key={team.id}>
+            <option value={team.id} key={team.id} aria-label={team.name}>
               {team.name}
             </option>
           ))}

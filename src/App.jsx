@@ -32,12 +32,12 @@ export default function App() {
         </header>
 
         <Switch>
-            <Route path="/teams/edit/:id" component={EditTeam} />
-            <Route path="/players/edit/:id" component={EditPlayer} />
-            <Route path="/teams/new" component={AddTeam} />
-            <Route path="/players/new" component={AddPlayer} />
+            <Route exact path="/teams/edit/:id" component={EditTeam} />
+            <Route exact path="/players/edit/:id" component={EditPlayer} />
+            <Route exact path="/teams/new" component={AddTeam} />
+            <Route exact path="/players/new" component={AddPlayer} />
             <Route
-              path="/players/:id"
+              exact path="/players/:id"
               render={(routerProps) => (
                 <PlayerDetail
                   label="Toddler League Player Detail"
@@ -47,14 +47,14 @@ export default function App() {
             />
 
             <Route
-              path="/teams/:id"
+              exact path="/teams/:id"
               render={(routerProps) => (
                 <TeamDetail label="Team Detail" {...routerProps} />
               )}
             />
-            <Route path="/players" exact component={PlayerList} />
-            <Route path="/teams" exact component={TeamList} />
-            <Route path="/" exact component={Home} />
+            <Route exact path="/players" component={PlayerList} />
+            <Route exact path="/teams" component={TeamList} />
+            <Route exact path="/" component={Home} />
         </Switch>
       </Router>
     </main>
